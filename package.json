@@ -1,0 +1,8 @@
+{
+  "name": "publish",
+  "version": "0.0.1",
+  "dependencies": {
+    "ncp": "^2.0.0",
+    "simple-git": "^1.96.0"
+  }
+}
