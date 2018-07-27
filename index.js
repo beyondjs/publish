@@ -1,6 +1,11 @@
 require('colors');
 
-const config = require('./config.json');
+let config;
+try {
+    config = require('./config.json');
+} catch (exc) {
+    console.log('Error reading config.json file', exc.message);
+}
 
 const application = config.application;
 const os = config.os;
