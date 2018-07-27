@@ -1,26 +1,28 @@
 require('colors');
 
-const application = 'superliga';
-const os = 'android';
-const environment = 'production';
-const language = 'spa';
-const platform = 'phonegap';
-const version = '1.0.4';
+const config = require('./config.json');
 
-let source = '/Users/enriquebox/Documents/code/efan/build';
-let destination = '/Users/enriquebox/Documents/code/apps';
+const application = config.application;
+const os = config.os;
+const environment = config.environment;
+const language = config.language;
+const platform = config.platform;
+const version = config.version;
+
+let source = config.source;
+let target = config.target;
 
 source = `${source}/${application}.${platform}/${environment}/${os}/${language}`;
-destination = `${destination}/${application}.${os}`;
+target = `${target}/${application}.${os}`;
 
-const git = require('simple-git/promise')(destination);
+const git = require('simple-git/promise')(target);
 
 const {promisify} = require('util');
 const ncp = promisify(require('ncp').ncp);
 
 console.log(`Deploying ${application} ${platform} - ${environment}`.bold);
 console.log(`\tFrom: ${source}`.green);
-console.log(`\tTo: ${destination}\n`.green);
+console.log(`\tTo: ${target}\n`.green);
 
 (async function () {
 
@@ -42,7 +44,7 @@ console.log(`\tTo: ${destination}\n`.green);
 
     try {
         console.log('Copy all application files');
-        await ncp(source, destination);
+        await ncp(source, target);
         console.log('\tAll application files are copied'.green);
     } catch (exc) {
         console.log('Error copying application files'.red, exc.stack);

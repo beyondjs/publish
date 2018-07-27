@@ -1,0 +1,10 @@
+{
+  "application": "superliga",
+  "os": "android",
+  "environment": "production",
+  "language": "spa",
+  "platform": "phonegap",
+  "version": "1.0.4",
+  "source": "/Users/enriquebox/Documents/code/efan/build",
+  "target": "/Users/enriquebox/Documents/code/apps"
+}
