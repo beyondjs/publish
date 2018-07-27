@@ -5,6 +5,7 @@ const os = 'android';
 const environment = 'production';
 const language = 'spa';
 const platform = 'phonegap';
+const version = '1.0.4';
 
 let source = '/Users/enriquebox/Documents/code/efan/build';
 let destination = '/Users/enriquebox/Documents/code/apps';
@@ -16,8 +17,6 @@ const git = require('simple-git/promise')(destination);
 
 const {promisify} = require('util');
 const ncp = promisify(require('ncp').ncp);
-
-const version = '1.0.4';
 
 console.log(`Deploying ${application} ${platform} - ${environment}`.bold);
 console.log(`\tFrom: ${source}`.green);
